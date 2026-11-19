@@ -1,0 +1,134 @@
+/* Navigation: curved dock menu and scroll cue. */
+
+/* Dock */
+.dock {
+  position: fixed;
+  left: 50%;
+  bottom: 18px;
+  transform: translateX(-50%);
+  z-index: 200;
+  width: min(560px, calc(100% - 24px));
+}
+.dock .bar {
+  position: relative;
+  height: 68px;
+  background: rgba(18, 49, 46, 0.72);
+  -webkit-backdrop-filter: blur(14px) saturate(140%);
+  backdrop-filter: blur(14px) saturate(140%);
+}
+.dock ul {
+  position: absolute;
+  inset: 0 20px;
+  display: flex;
+  list-style: none;
+}
+.dock li {
+  flex: 1;
+}
+.dock a {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  height: 68px;
+  padding-bottom: 12px;
+  color: #b9cbc4;
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 600;
+  position: relative;
+}
+.dock a svg {
+  width: 22px;
+  height: 22px;
+  stroke: currentColor;
+  fill: none;
+  stroke-width: 1.8;
+  position: absolute;
+  top: 14px;
+  transition:
+    transform 0.45s,
+    opacity 0.3s;
+}
+.dock a.active {
+  color: var(--paper);
+}
+.dock a.active svg {
+  opacity: 0;
+}
+.dock .bubble {
+  position: absolute;
+  top: -30px;
+  left: var(--x, 50px);
+  width: 58px;
+  height: 58px;
+  margin-left: -29px;
+  border-radius: 50%;
+  background: var(--ochre);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 20px -6px rgba(0, 0, 0, 0.4);
+}
+.dock .bubble svg {
+  width: 24px;
+  height: 24px;
+  stroke: var(--ink);
+  fill: none;
+  stroke-width: 2;
+}
+@property --x {
+  syntax: '<length>';
+  inherits: true;
+  initial-value: 50px;
+}
+
+/* Scroll cue */
+.scroll-cue {
+  display: none;
+  position: fixed;
+  left: 50%;
+  bottom: 20px;
+  transform: translateX(-50%);
+  z-index: 3;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  color: #e8eee6;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  text-decoration: none;
+  opacity: 0.85;
+  transition: opacity 0.4s;
+}
+.scroll-cue svg {
+  width: 22px;
+  height: 22px;
+  stroke: currentColor;
+  fill: none;
+  stroke-width: 2;
+  animation: cueBob 1.8s ease-in-out infinite;
+}
+@keyframes cueBob {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(7px);
+  }
+}
+body.scrolled .scroll-cue {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .dock .bubble,
+  .dock .bar {
+    transition: none;
+  }
+}

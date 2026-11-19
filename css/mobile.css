@@ -1,0 +1,239 @@
+/* Tablet and phone styles. Loaded last so these rules override the desktop styles. */
+
+/* Projects section */
+@media (max-width: 700px) {
+  #projects {
+    padding: 110px 0 130px;
+  }
+  #projects .scape {
+    height: 62px;
+  }
+}
+
+/* Certifications */
+@media (max-width: 520px) {
+  .cert {
+    grid-template-columns: 52px 1fr;
+  }
+  .cert .code {
+    width: 52px;
+    height: 52px;
+    font-size: 12px;
+  }
+  .cert .verify,
+  .cert .done-chip.now {
+    color: #9a6b12;
+    border-color: var(--ochre);
+  }
+  .done-chip,
+  .cert .verify {
+    grid-column: 2;
+    justify-self: start;
+  }
+}
+
+/* Contact */
+@media (max-width: 700px) {
+  #contact .intro {
+    margin-top: 18px !important;
+  }
+}
+@media (max-width: 700px) {
+  #contact .clock {
+    margin-top: 120px;
+  }
+}
+@media (max-width: 700px) {
+  #contact {
+    padding: 110px 0 170px;
+    border-radius: 50% 50% 0 0 / 36px 36px 0 0;
+  }
+}
+
+/* Hero */
+@media (max-width: 860px) {
+  .hero-bg .hero {
+    padding-bottom: 90px;
+  }
+  .veil {
+    background: linear-gradient(
+      180deg,
+      rgba(12, 36, 34, 0.15) 0%,
+      rgba(12, 36, 34, 0.55) 40%,
+      rgba(12, 36, 34, 0.8) 68%,
+      rgba(12, 36, 34, 0.55) 84%,
+      rgba(127, 151, 141, 0.55) 93%,
+      rgba(232, 238, 230, 1) 100%
+    );
+  }
+  .photo-bg {
+    background-image: var(--img-sm);
+    inset: 0;
+  }
+}
+
+/* Project tiles */
+@media (max-width: 860px) {
+  .tiles {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* Layout, book and dock */
+@media (max-width: 860px) {
+  .hero,
+  .about,
+  .two {
+    grid-template-columns: 1fr;
+  }
+  .hero {
+    min-height: auto;
+    padding-top: 40px;
+  }
+  .portrait {
+    order: -1;
+    width: min(280px, 70vw);
+  }
+  .skills {
+    grid-template-columns: 1fr 1fr;
+  }
+  .job {
+    grid-template-columns: 1fr;
+    gap: 6px;
+  }
+  .book-stage {
+    display: none;
+  }
+  .on-desk {
+    display: none;
+  }
+  .on-mob {
+    display: inline;
+  }
+  .mobile-projects {
+    display: flex;
+    gap: 16px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    padding-bottom: 12px;
+  }
+  .mobile-projects {
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+  .mobile-projects::-webkit-scrollbar {
+    display: none;
+  }
+  .mobile-projects .face {
+    position: relative;
+    inset: auto;
+    min-width: 86%;
+    min-height: 520px;
+    scroll-snap-align: center;
+    scroll-snap-stop: always;
+    border-radius: 14px;
+    backface-visibility: visible;
+    transform: none;
+    background: var(--paper);
+    padding: 32px 26px 48px;
+    box-shadow: inset 6px 0 0 #cfd8cd;
+  }
+  .mobile-projects .face .pn {
+    right: 22px;
+    left: auto;
+  }
+  .mobile-projects .title-page {
+    height: auto;
+    min-height: 420px;
+  }
+  .dots {
+    display: flex;
+  }
+  .mobile-projects .visual {
+    height: auto;
+  }
+  .dock a span {
+    font-size: 11px;
+  }
+  .dock .bubble {
+    width: 50px;
+    height: 50px;
+    margin-left: -25px;
+    top: -24px;
+  }
+  .dock ul {
+    inset: 0 26px;
+  }
+}
+
+/* Contact photo layout */
+@media (max-width: 700px) {
+  #contact.photo-mode {
+    padding-bottom: 130px;
+  }
+  #contact.photo-mode .clock {
+    margin-top: 44px !important;
+  }
+}
+
+/* Dock and scroll cues */
+@media (max-width: 860px) {
+  .dock {
+    transition:
+      transform 0.4s ease,
+      opacity 0.3s;
+  }
+  body:not(.scrolled) .dock {
+    opacity: 0;
+    transform: translate(-50%, 130%);
+    pointer-events: none;
+  }
+}
+@media (max-width: 860px) {
+  .scroll-cue {
+    display: flex;
+    z-index: 150;
+    left: auto;
+    right: 16px;
+    transform: none;
+    background: rgba(18, 49, 46, 0.72);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    padding: 8px 16px 6px;
+    border-radius: 999px;
+  }
+  .mobile-projects {
+    scroll-padding-left: 0;
+  }
+  .swipe-hint {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    margin-top: 12px;
+    color: #b9cbc4;
+    font-size: 13px;
+    font-weight: 600;
+    transition: opacity 0.4s;
+  }
+  .swipe-hint svg {
+    width: 20px;
+    height: 20px;
+    stroke: currentColor;
+    fill: none;
+    stroke-width: 2;
+    animation: cueSide 1.6s ease-in-out infinite;
+  }
+  .swipe-hint.gone {
+    opacity: 0;
+  }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .scroll-cue svg,
+  .swipe-hint svg {
+    animation: none;
+  }
+}
