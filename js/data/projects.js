@@ -30,23 +30,15 @@ const PROJECT_VISUALS = {
 
   clinic: `
     <div class="viz">
-      <div class="win">
-        <div class="top"><i></i><i></i></div>
-        <div class="body">
-          <h4>My bookings</h4>
-          <div class="bk new">
-            <div>Thu, 10:30<small>Follow-up</small></div>
-            <span class="badge">Booked</span>
-          </div>
-          <div class="bk">
-            <div>Mon, 09:00<small>General check-up</small></div>
-            <span class="badge swap"><span class="a">Pending</span><span class="b">Confirmed</span></span>
-          </div>
-          <div class="bk">
-            <div>Wed, 14:00<small>Eye test</small></div>
-            <span class="badge">Confirmed</span>
-          </div>
-        </div>
+      <div class="shots">
+        <figure class="shot main">
+          <div class="bar"><i></i><i></i><i></i></div>
+          <img src="img/clinic-landing.webp" alt="UMP Clinic landing page" loading="lazy" />
+        </figure>
+        <figure class="shot side">
+          <div class="bar"><i></i><i></i><i></i></div>
+          <img src="img/clinic-login.webp" alt="UMP Clinic login page" loading="lazy" />
+        </figure>
       </div>
     </div>`,
 
@@ -116,8 +108,8 @@ const PROJECTS = [
     text: 'A clinic booking and management system for university students, with a student portal and an admin dashboard. Students sign up, verify their email and book clinic visits.',
     mine: 'I built the student dashboards, worked on the backend database logic and contributed to the email verification feature.',
     stack: ['Node.js', 'Express', 'EJS', 'SQLite', 'Nodemailer'],
-    repo: 'https://github.com/TheoInCodeLand/clinic__',
-    links: [['Live demo', 'https://clinic-ten-zeta.vercel.app']]
+    repo: 'https://github.com/WelzCode/ump-clinic',
+    links: []
   },
   {
     id: 'analysis',
